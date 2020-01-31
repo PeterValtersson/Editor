@@ -155,14 +155,19 @@
   <ItemGroup>
     <ClCompile Include="EngineWindowInterface.cpp" />
     <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="RenderView.cpp" />
     <ClCompile Include="SceneView.cpp" />
     <ClCompile Include="TabControlWindow.cpp" />
     <ClCompile Include="WindowSplit.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EnginePtr.h" />
     <ClInclude Include="EngineWindowInterface.h" />
     <ClInclude Include="MainWindow.h">
       <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="RenderView.h">
+      <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="resource.h" />
     <ClInclude Include="SceneView.h">
@@ -179,6 +184,9 @@
   <ItemGroup>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RenderView.resx">
+      <DependentUpon>RenderView.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SceneView.resx">
       <DependentUpon>SceneView.h</DependentUpon>

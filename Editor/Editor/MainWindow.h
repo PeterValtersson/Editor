@@ -5,10 +5,7 @@
 #include "SceneView.h"
 
 namespace Editor {
-	struct EnginePtr{
-		std::shared_ptr<Engine::IEngine> engine;
-		std::shared_ptr<EngineWindowInterface> window;
-	};
+
 
 
 	using namespace System;
@@ -35,6 +32,7 @@ namespace Editor {
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	protected:
 	private: System::Windows::Forms::StatusStrip^ statusStrip1;
+	private: System::Windows::Forms::Panel^ panel1;
 
 	protected:
 
@@ -56,6 +54,7 @@ namespace Editor {
 		{
 			this->menuStrip1 = ( gcnew System::Windows::Forms::MenuStrip() );
 			this->statusStrip1 = ( gcnew System::Windows::Forms::StatusStrip() );
+			this->panel1 = ( gcnew System::Windows::Forms::Panel() );
 			this->SuspendLayout();
 			// 
 			// menuStrip1
@@ -74,11 +73,20 @@ namespace Editor {
 			this->statusStrip1->TabIndex = 1;
 			this->statusStrip1->Text = L"statusStrip1";
 			// 
+			// panel1
+			// 
+			this->panel1->Location = System::Drawing::Point( 361, 239 );
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size( 200, 100 );
+			this->panel1->TabIndex = 2;
+			this->panel1->Resize += gcnew System::EventHandler( this, &MainWindow::panel1_Resize );
+			// 
 			// MainWindow
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF( 6, 13 );
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size( 916, 559 );
+			this->Controls->Add( this->panel1 );
 			this->Controls->Add( this->statusStrip1 );
 			this->Controls->Add( this->menuStrip1 );
 			this->MainMenuStrip = this->menuStrip1;

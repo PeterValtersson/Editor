@@ -37,6 +37,7 @@ Editor::MainWindow::MainWindow( void ) : engine(nullptr)
 	render_view = gcnew Panel;
 	render_view->Dock = DockStyle::Fill;
 	render_view->Name = "Render Scene";
+	render_view->Resize += gcnew System::EventHandler()
 	spliter->add_view( WindowSplit::Location::Top, render_view );
 
 	engine = new EnginePtr;
