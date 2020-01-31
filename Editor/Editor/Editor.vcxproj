@@ -155,17 +155,39 @@
   <ItemGroup>
     <ClCompile Include="EngineWindowInterface.cpp" />
     <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="SceneView.cpp" />
+    <ClCompile Include="TabControlWindow.cpp" />
+    <ClCompile Include="WindowSplit.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineWindowInterface.h" />
     <ClInclude Include="MainWindow.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="SceneView.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="StringHelpers.h" />
+    <ClInclude Include="TabControlWindow.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="WindowSplit.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SceneView.resx">
+      <DependentUpon>SceneView.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TabControlWindow.resx">
+      <DependentUpon>TabControlWindow.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowSplit.resx">
+      <DependentUpon>WindowSplit.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +197,12 @@
     <ProjectReference Include="..\..\..\Engine\Engine\Window\Window.vcxproj">
       <Project>{32a997ee-35d4-4ec8-9ae6-417844f10337}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Editor.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="TabControl_Exit.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

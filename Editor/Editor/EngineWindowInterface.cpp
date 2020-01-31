@@ -5,7 +5,7 @@ void Editor::EngineWindowInterface::Frame() noexcept
 
 void* Editor::EngineWindowInterface::GetWindowHandle() noexcept
 {
-	return nullptr;
+	return hwnd;
 }
 
 void* Editor::EngineWindowInterface::GetWindowImplementation() noexcept
