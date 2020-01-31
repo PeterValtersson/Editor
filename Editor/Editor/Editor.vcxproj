@@ -76,18 +76,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)Build/$(Configuration)/$(Platform)/</OutDir>
     <IntDir>$(ProjectDir)Intermediate/$(Configuration)/$(Platform)/</IntDir>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)../../EntityComponentSystem/EntityComponentSystem/Include/;$(SolutionDir)../../Renderer/Renderer/Include/;$(SolutionDir)../../Utilities/Utilities/Include;$(SolutionDir)../../Engine/Engine/include;$(SolutionDir)../../Resource-Handler\ResourceHandler/include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)Build/$(Configuration)/$(Platform)/</OutDir>
     <IntDir>$(ProjectDir)Intermediate/$(Configuration)/$(Platform)/</IntDir>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)../../EntityComponentSystem/EntityComponentSystem/Include/;$(SolutionDir)../../Renderer/Renderer/Include/;$(SolutionDir)../../Utilities/Utilities/Include;$(SolutionDir)../../Engine/Engine/include;$(SolutionDir)../../Resource-Handler\ResourceHandler/include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)Build/$(Configuration)/$(Platform)/</OutDir>
     <IntDir>$(ProjectDir)Intermediate/$(Configuration)/$(Platform)/</IntDir>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)../../EntityComponentSystem/EntityComponentSystem/Include/;$(SolutionDir)../../Renderer/Renderer/Include/;$(SolutionDir)../../Utilities/Utilities/Include;$(SolutionDir)../../Engine/Engine/include;$(SolutionDir)../../Resource-Handler\ResourceHandler/include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)Build/$(Configuration)/$(Platform)/</OutDir>
     <IntDir>$(ProjectDir)Intermediate/$(Configuration)/$(Platform)/</IntDir>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)../../EntityComponentSystem/EntityComponentSystem/Include/;$(SolutionDir)../../Renderer/Renderer/Include/;$(SolutionDir)../../Utilities/Utilities/Include;$(SolutionDir)../../Engine/Engine/include;$(SolutionDir)../../Resource-Handler\ResourceHandler/include</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -149,17 +153,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EngineWindowInterface.cpp" />
     <ClCompile Include="MainWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EngineWindowInterface.h" />
     <ClInclude Include="MainWindow.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="StringHelpers.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Engine\Engine\Engine\Engine.vcxproj">
+      <Project>{0e59049c-407e-40ac-b7e5-5052b99f455f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Engine\Engine\Window\Window.vcxproj">
+      <Project>{32a997ee-35d4-4ec8-9ae6-417844f10337}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

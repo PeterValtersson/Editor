@@ -1,6 +1,11 @@
 #pragma once
+#include <IEngine.h>
 
 namespace Editor {
+	struct EnginePtr{
+		std::shared_ptr<Engine::IEngine> engine;
+	};
+
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -14,26 +19,15 @@ namespace Editor {
 	/// </summary>
 	public ref class MainWindow : public System::Windows::Forms::Form
 	{
+		
 	public:
-		MainWindow(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
-		}
+		MainWindow( void );
 
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~MainWindow()
-		{
-			if (components)
-			{
-				delete components;
-			}
-		}
+		~MainWindow();
 
 	private:
 		/// <summary>
@@ -61,5 +55,8 @@ namespace Editor {
 
 		}
 #pragma endregion
+
+	private:
+		EnginePtr* engine;
 	};
 }
