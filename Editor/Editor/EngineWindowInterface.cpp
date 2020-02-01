@@ -3,6 +3,12 @@
 
 #pragma comment(lib, "User32.lib")
 
+Editor::EngineWindowInterface::EngineWindowInterface( void* hwnd )
+{
+	this->hwnd = hwnd;
+}
+
+
 void Editor::EngineWindowInterface::Frame() noexcept
 {}
 
@@ -52,7 +58,7 @@ Window::Resolution Editor::EngineWindowInterface::GetResolution() const noexcept
 
 	RECT clientRect;
 
-	GetClientRect( hwnd, &clientRect );
+	GetClientRect( (HWND)hwnd, &clientRect );
 
 	return { uint32_t( clientRect.right ) - uint32_t( clientRect.left ), uint32_t( clientRect.bottom ) - uint32_t( clientRect.top ) };
 }
@@ -106,3 +112,8 @@ void Editor::EngineWindowInterface::BindOnQuitEvent( const Window::QuitCallback&
 
 void Editor::EngineWindowInterface::UnbindOnQuitEvent( const Window::QuitCallback& callback ) noexcept
 {}
+
+void Editor::EngineWindowInterface::SetHWND( void* hwnd )
+{
+	this->hwnd = hwnd;
+}

@@ -1,16 +1,12 @@
 #pragma once
 #include <Window_Interface.h>
-#include <Windows.h>
+
 
 namespace Editor
 {
 	class EngineWindowInterface : public Window::Window_Interface{
 	public:
-		EngineWindowInterface( HWND hwnd )
-		{
-			this->hwnd = hwnd;
-		}
-
+		EngineWindowInterface( void* hwnd );
 		virtual void Frame()noexcept override;
 
 		virtual void* GetWindowHandle()noexcept override;
@@ -60,8 +56,10 @@ namespace Editor
 		virtual void BindOnQuitEvent( const Window::QuitCallback& callback )noexcept override;
 		virtual void UnbindOnQuitEvent( const Window::QuitCallback& callback )noexcept override;
 
+		void SetHWND( void* hwnd );
+
 	private:
-		HWND hwnd;
+		void* hwnd;
 
 	};
 }
