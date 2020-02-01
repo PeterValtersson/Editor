@@ -153,14 +153,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AddNewComponent.cpp" />
+    <ClCompile Include="ComponentControl.cpp" />
+    <ClCompile Include="ComponentView.cpp" />
     <ClCompile Include="EngineWindowInterface.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="RenderView.cpp" />
     <ClCompile Include="SceneView.cpp" />
     <ClCompile Include="TabControlWindow.cpp" />
+    <ClCompile Include="TransformComponent.cpp" />
     <ClCompile Include="WindowSplit.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddNewComponent.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="BaseComponent.h" />
+    <ClInclude Include="ComponentControl.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="ComponentView.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="EnginePtr.h" />
     <ClInclude Include="EngineWindowInterface.h" />
     <ClInclude Include="MainWindow.h">
@@ -177,11 +191,23 @@
     <ClInclude Include="TabControlWindow.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="WindowSplit.h">
       <FileType>CppControl</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddNewComponent.resx">
+      <DependentUpon>AddNewComponent.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComponentControl.resx">
+      <DependentUpon>ComponentControl.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComponentView.resx">
+      <DependentUpon>ComponentView.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.h</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TabControlWindow.resx">
       <DependentUpon>TabControlWindow.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransformComponent.resx">
+      <DependentUpon>TransformComponent.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WindowSplit.resx">
       <DependentUpon>WindowSplit.h</DependentUpon>

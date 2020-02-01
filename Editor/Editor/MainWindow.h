@@ -5,6 +5,7 @@
 #include "SceneView.h"
 #include "EnginePtr.h"
 #include "RenderView.h"
+#include "ComponentView.h"
 
 
 namespace Editor {
@@ -23,7 +24,14 @@ namespace Editor {
 	/// </summary>
 	public ref class MainWindow : public System::Windows::Forms::Form
 	{
-		
+
+	private:
+		EnginePtr* engine;
+
+		WindowSplit^ spliter;
+		SceneView^ scene_view;
+		RenderView^ render_view;
+		ComponentView^ component_view;
 	public:
 		MainWindow( void );
 
@@ -60,8 +68,8 @@ namespace Editor {
 		void InitializeComponent(void)
 		{
 			this->toolStripContainer1 = ( gcnew System::Windows::Forms::ToolStripContainer() );
-			this->menuStrip1 = ( gcnew System::Windows::Forms::MenuStrip() );
 			this->statusStrip1 = ( gcnew System::Windows::Forms::StatusStrip() );
+			this->menuStrip1 = ( gcnew System::Windows::Forms::MenuStrip() );
 			this->toolStripContainer1->BottomToolStripPanel->SuspendLayout();
 			this->toolStripContainer1->TopToolStripPanel->SuspendLayout();
 			this->toolStripContainer1->SuspendLayout();
@@ -76,11 +84,11 @@ namespace Editor {
 			// 
 			// toolStripContainer1.ContentPanel
 			// 
-			this->toolStripContainer1->ContentPanel->Size = System::Drawing::Size( 916, 513 );
+			this->toolStripContainer1->ContentPanel->Size = System::Drawing::Size( 1120, 513 );
 			this->toolStripContainer1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->toolStripContainer1->Location = System::Drawing::Point( 0, 0 );
 			this->toolStripContainer1->Name = L"toolStripContainer1";
-			this->toolStripContainer1->Size = System::Drawing::Size( 916, 559 );
+			this->toolStripContainer1->Size = System::Drawing::Size( 1120, 559 );
 			this->toolStripContainer1->TabIndex = 2;
 			this->toolStripContainer1->Text = L"toolStripContainer1";
 			// 
@@ -88,28 +96,28 @@ namespace Editor {
 			// 
 			this->toolStripContainer1->TopToolStripPanel->Controls->Add( this->menuStrip1 );
 			// 
-			// menuStrip1
-			// 
-			this->menuStrip1->Dock = System::Windows::Forms::DockStyle::None;
-			this->menuStrip1->Location = System::Drawing::Point( 0, 0 );
-			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size( 916, 24 );
-			this->menuStrip1->TabIndex = 0;
-			this->menuStrip1->Text = L"menuStrip1";
-			// 
 			// statusStrip1
 			// 
 			this->statusStrip1->Dock = System::Windows::Forms::DockStyle::None;
 			this->statusStrip1->Location = System::Drawing::Point( 0, 0 );
 			this->statusStrip1->Name = L"statusStrip1";
-			this->statusStrip1->Size = System::Drawing::Size( 916, 22 );
+			this->statusStrip1->Size = System::Drawing::Size( 1120, 22 );
 			this->statusStrip1->TabIndex = 0;
+			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->Dock = System::Windows::Forms::DockStyle::None;
+			this->menuStrip1->Location = System::Drawing::Point( 0, 0 );
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size( 1120, 24 );
+			this->menuStrip1->TabIndex = 0;
+			this->menuStrip1->Text = L"menuStrip1";
 			// 
 			// MainWindow
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF( 6, 13 );
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size( 916, 559 );
+			this->ClientSize = System::Drawing::Size( 1120, 559 );
 			this->Controls->Add( this->toolStripContainer1 );
 			this->Name = L"MainWindow";
 			this->Text = L"MainWindow";
@@ -124,11 +132,5 @@ namespace Editor {
 		}
 #pragma endregion
 
-	private:
-		EnginePtr* engine;
-
-		WindowSplit^ spliter;
-		SceneView^ scene_view;
-		RenderView^ render_view;
 	};
 }

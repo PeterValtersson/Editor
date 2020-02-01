@@ -13,15 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ComponentView">
+      <UniqueIdentifier>{dbe31299-834a-495e-993f-602751fc720f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ComponentView\Components">
+      <UniqueIdentifier>{db51f581-6786-45df-bdcb-1497fa386e86}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EngineWindowInterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WindowSplit.cpp">
@@ -32,6 +35,21 @@
     </ClCompile>
     <ClCompile Include="RenderView.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformComponent.cpp">
+      <Filter>ComponentView\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentView.cpp">
+      <Filter>ComponentView</Filter>
+    </ClCompile>
+    <ClCompile Include="AddNewComponent.cpp">
+      <Filter>ComponentView</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentControl.cpp">
+      <Filter>ComponentView</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +79,21 @@
     </ClInclude>
     <ClInclude Include="EnginePtr.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <Filter>ComponentView\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentView.h">
+      <Filter>ComponentView</Filter>
+    </ClInclude>
+    <ClInclude Include="AddNewComponent.h">
+      <Filter>ComponentView</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentControl.h">
+      <Filter>ComponentView</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseComponent.h">
+      <Filter>ComponentView\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -23,7 +23,7 @@ int main( array <String^>^ args )
 	return 0;
 }
 
-Editor::MainWindow::MainWindow( void ) : engine(nullptr)
+Editor::MainWindow::MainWindow( void ) : engine( nullptr )
 {
 
 	InitializeComponent();
@@ -31,16 +31,13 @@ Editor::MainWindow::MainWindow( void ) : engine(nullptr)
 	spliter->Dock = DockStyle::Fill;
 	toolStripContainer1->ContentPanel->Controls->Add( spliter );
 
-	scene_view = gcnew SceneView;
-	spliter->add_view( WindowSplit::Location::Left, scene_view );
-
 	engine = new EnginePtr;
-	render_view = gcnew RenderView(engine);
+	render_view = gcnew RenderView( engine );
 	render_view->Dock = DockStyle::Fill;
 	render_view->Name = "Render Scene";
-	
-	
-	engine->window = std::make_shared<EngineWindowInterface>(  render_view->Handle.ToPointer() ); 
+
+
+	engine->window = std::make_shared<EngineWindowInterface>( render_view->Handle.ToPointer() );
 	Engine::Init_Info ii;
 	ii.mode = ResourceHandler::AccessMode::read_write;
 	ii.sub_systems.window = engine->window;
@@ -49,6 +46,15 @@ Editor::MainWindow::MainWindow( void ) : engine(nullptr)
 	engine->engine->start( true );
 
 	spliter->add_view( WindowSplit::Location::Top, render_view );
+
+
+	component_view = gcnew ComponentView( engine );
+	component_view->Dock = DockStyle::Fill;
+	component_view->Name = "Components";
+	spliter->add_view( WindowSplit::Location::Right, component_view );
+
+	scene_view = gcnew SceneView( engine, component_view );
+	spliter->add_view( WindowSplit::Location::Left, scene_view );
 
 
 }
@@ -64,5 +70,5 @@ Editor::MainWindow::~MainWindow()
 		delete engine;
 		engine = nullptr;
 	}
-		
+
 }

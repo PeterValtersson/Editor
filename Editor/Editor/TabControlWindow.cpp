@@ -4,14 +4,12 @@ void Editor::TabControlWindow::hide_tabs( bool hide )
 {
 	if ( hide )
 	{
-		tabs->Appearance = TabAppearance::FlatButtons;
 		tabs->ItemSize = Drawing::Size( 0, 1 );
 		tabs->SizeMode = TabSizeMode::Fixed;
 		//tabs->Controls[0]->Text = "";
 	}
 	else
 	{
-		tabs->Appearance = TabAppearance::Normal;
 		tabs->ItemSize = Drawing::Size( 0, 18 );
 		tabs->SizeMode = TabSizeMode::Normal;
 	}
