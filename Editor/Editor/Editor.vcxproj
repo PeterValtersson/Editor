@@ -159,6 +159,7 @@
     <ClCompile Include="EngineWindowInterface.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="RenderView.cpp" />
+    <ClCompile Include="ResourceView.cpp" />
     <ClCompile Include="SceneView.cpp" />
     <ClCompile Include="TabControlWindow.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
@@ -184,6 +185,9 @@
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="resource.h" />
+    <ClInclude Include="ResourceView.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="SceneView.h">
       <FileType>CppControl</FileType>
     </ClInclude>
@@ -213,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RenderView.resx">
       <DependentUpon>RenderView.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceView.resx">
+      <DependentUpon>ResourceView.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SceneView.resx">
       <DependentUpon>SceneView.h</DependentUpon>

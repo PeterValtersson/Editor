@@ -19,6 +19,9 @@
     <Filter Include="ComponentView\Components">
       <UniqueIdentifier>{db51f581-6786-45df-bdcb-1497fa386e86}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ResourceView">
+      <UniqueIdentifier>{ce0f7ab9-d2c2-4ea5-9a2a-187335fede1f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainWindow.cpp">
@@ -50,6 +53,9 @@
     </ClCompile>
     <ClCompile Include="ComponentControl.cpp">
       <Filter>ComponentView</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceView.cpp">
+      <Filter>ResourceView</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="BaseComponent.h">
       <Filter>ComponentView\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceView.h">
+      <Filter>ResourceView</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

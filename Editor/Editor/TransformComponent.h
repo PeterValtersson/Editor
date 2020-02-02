@@ -14,7 +14,7 @@ namespace Editor {
 	/// <summary>
 	/// Summary for TransformComponent
 	/// </summary>
-	public ref class TransformComponent : public System::Windows::Forms::UserControl//, public BaseComponent
+	public ref class TransformComponent : public System::Windows::Forms::UserControl, public BaseComponent
 	{
 	private:
 		EnginePtr* engine;
