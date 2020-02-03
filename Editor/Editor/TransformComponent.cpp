@@ -19,6 +19,14 @@ void Editor::TransformComponent::Create()
 	posX->Text = FloatToString( 0.0 );
 	posY->Text = FloatToString( 0.0 );
 	posZ->Text = FloatToString( 0.0 );
+	
+	rotX->Text = FloatToString( 0.0 );
+	rotY->Text = FloatToString( 0.0 );
+	rotZ->Text = FloatToString( 0.0 );
+
+	scaleX->Text = FloatToString( 1.0 );
+	scaleY->Text = FloatToString( 1.0 );
+	scaleZ->Text = FloatToString( 1.0 );
 }
 System::Void Editor::TransformComponent::posChanged( System::Object^ sender, System::EventArgs^ e )
 {
