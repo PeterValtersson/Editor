@@ -22,6 +22,9 @@
     <Filter Include="ResourceView">
       <UniqueIdentifier>{ce0f7ab9-d2c2-4ea5-9a2a-187335fede1f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ComponentView\Components\RenderObjectComponent">
+      <UniqueIdentifier>{87f8a538-68b3-4b5c-b173-eddbaa43b11f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainWindow.cpp">
@@ -56,6 +59,9 @@
     </ClCompile>
     <ClCompile Include="ResourceView.cpp">
       <Filter>ResourceView</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderObjectComponent.cpp">
+      <Filter>ComponentView\Components\RenderObjectComponent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="ResourceView.h">
       <Filter>ResourceView</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderObjectComponent.h">
+      <Filter>ComponentView\Components\RenderObjectComponent</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

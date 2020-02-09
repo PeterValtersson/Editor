@@ -93,7 +93,7 @@ namespace Editor
 			// splitContainer1.Panel1
 			// 
 			this->splitContainer1->Panel1->AutoScroll = true;
-			this->splitContainer1->Panel1MinSize = 100;
+			this->splitContainer1->Panel1MinSize = 250;
 			// 
 			// splitContainer1.Panel2
 			// 
