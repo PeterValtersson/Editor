@@ -158,6 +158,7 @@
     <ClCompile Include="ComponentView.cpp" />
     <ClCompile Include="EngineWindowInterface.cpp" />
     <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="PropertyComponent.cpp" />
     <ClCompile Include="RenderObjectComponent.cpp" />
     <ClCompile Include="RenderView.cpp" />
     <ClCompile Include="ResourceView.cpp" />
@@ -181,6 +182,9 @@
     <ClInclude Include="EngineWindowInterface.h" />
     <ClInclude Include="MainWindow.h">
       <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="PropertyComponent.h">
+      <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="RenderObjectComponent.h">
       <FileType>CppControl</FileType>
@@ -218,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyComponent.resx">
+      <DependentUpon>PropertyComponent.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RenderObjectComponent.resx">
       <DependentUpon>RenderObjectComponent.h</DependentUpon>

@@ -60,6 +60,9 @@
     <ClCompile Include="ResourceView.cpp">
       <Filter>ResourceView</Filter>
     </ClCompile>
+    <ClCompile Include="PropertyComponent.cpp">
+      <Filter>ComponentView\Components</Filter>
+    </ClCompile>
     <ClCompile Include="RenderObjectComponent.cpp">
       <Filter>ComponentView\Components\RenderObjectComponent</Filter>
     </ClCompile>
@@ -109,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="ResourceView.h">
       <Filter>ResourceView</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyComponent.h">
+      <Filter>ComponentView\Components</Filter>
     </ClInclude>
     <ClInclude Include="RenderObjectComponent.h">
       <Filter>ComponentView\Components\RenderObjectComponent</Filter>
