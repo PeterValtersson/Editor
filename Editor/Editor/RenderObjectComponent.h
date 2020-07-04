@@ -1,5 +1,7 @@
 #pragma once
 
+#include "BaseComponent.h"
+#include "EnginePtr.h"
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -15,15 +17,25 @@ namespace Editor {
 	/// </summary>
 	public ref class RenderObjectComponent : public System::Windows::Forms::UserControl
 	{
+	private:
+		EnginePtr* engine;
+		Entity entity;
 	public:
-		RenderObjectComponent(void)
+		RenderObjectComponent( EnginePtr* engine, Entity entity )
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
+
+			this->engine = engine;
+			this->entity = entity;
+			this->Text = "Transform";
+			Dock = DockStyle::Fill;
 		}
 
+		String^ ToString()override
+		{
+			return Text;
+		}
+		virtual void Create();
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -36,13 +48,18 @@ namespace Editor {
 			}
 		}
 	private: System::Windows::Forms::GroupBox^ groupBox1;
+	private: System::Windows::Forms::ComboBox^ shaderDD;
 	protected:
 
-	private: System::Windows::Forms::ComboBox^ comboBox1;
-	private: System::Windows::Forms::GroupBox^ groupBox2;
-	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::ComboBox^ comboBox2;
+
+
+
+
+
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::ComboBox^ meshDD;
+
 
 	private:
 		/// <summary>
@@ -58,18 +75,19 @@ namespace Editor {
 		void InitializeComponent(void)
 		{
 			this->groupBox1 = ( gcnew System::Windows::Forms::GroupBox() );
-			this->comboBox1 = ( gcnew System::Windows::Forms::ComboBox() );
-			this->groupBox2 = ( gcnew System::Windows::Forms::GroupBox() );
-			this->comboBox2 = ( gcnew System::Windows::Forms::ComboBox() );
-			this->label1 = ( gcnew System::Windows::Forms::Label() );
-			this->flowLayoutPanel1 = ( gcnew System::Windows::Forms::FlowLayoutPanel() );
+			this->label2 = ( gcnew System::Windows::Forms::Label() );
+			this->shaderDD = ( gcnew System::Windows::Forms::ComboBox() );
+			this->label3 = ( gcnew System::Windows::Forms::Label() );
+			this->meshDD = ( gcnew System::Windows::Forms::ComboBox() );
 			this->groupBox1->SuspendLayout();
-			this->groupBox2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// groupBox1
 			// 
-			this->groupBox1->Controls->Add( this->comboBox1 );
+			this->groupBox1->Controls->Add( this->label3 );
+			this->groupBox1->Controls->Add( this->meshDD );
+			this->groupBox1->Controls->Add( this->label2 );
+			this->groupBox1->Controls->Add( this->shaderDD );
 			this->groupBox1->Dock = System::Windows::Forms::DockStyle::Top;
 			this->groupBox1->Location = System::Drawing::Point( 0, 0 );
 			this->groupBox1->Name = L"groupBox1";
@@ -78,67 +96,55 @@ namespace Editor {
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Mesh";
 			// 
-			// comboBox1
+			// label2
 			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point( 7, 18 );
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size( 150, 21 );
-			this->comboBox1->TabIndex = 0;
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point( 7, 32 );
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size( 41, 13 );
+			this->label2->TabIndex = 2;
+			this->label2->Text = L"Shader";
+			this->label2->Click += gcnew System::EventHandler( this, &RenderObjectComponent::label2_Click );
 			// 
-			// groupBox2
+			// shaderDD
 			// 
-			this->groupBox2->Controls->Add( this->flowLayoutPanel1 );
-			this->groupBox2->Controls->Add( this->label1 );
-			this->groupBox2->Controls->Add( this->comboBox2 );
-			this->groupBox2->Dock = System::Windows::Forms::DockStyle::Top;
-			this->groupBox2->Location = System::Drawing::Point( 0, 96 );
-			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size( 250, 346 );
-			this->groupBox2->TabIndex = 2;
-			this->groupBox2->TabStop = false;
-			this->groupBox2->Text = L"Material";
+			this->shaderDD->FormattingEnabled = true;
+			this->shaderDD->Location = System::Drawing::Point( 75, 29 );
+			this->shaderDD->Name = L"shaderDD";
+			this->shaderDD->Size = System::Drawing::Size( 169, 21 );
+			this->shaderDD->TabIndex = 0;
 			// 
-			// comboBox2
+			// label3
 			// 
-			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Location = System::Drawing::Point( 54, 17 );
-			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size( 184, 21 );
-			this->comboBox2->TabIndex = 0;
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point( 7, 59 );
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size( 33, 13 );
+			this->label3->TabIndex = 4;
+			this->label3->Text = L"Mesh";
 			// 
-			// label1
+			// meshDD
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point( 7, 20 );
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size( 41, 13 );
-			this->label1->TabIndex = 1;
-			this->label1->Text = L"Shader";
-			// 
-			// flowLayoutPanel1
-			// 
-			this->flowLayoutPanel1->AutoSize = true;
-			this->flowLayoutPanel1->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
-			this->flowLayoutPanel1->Location = System::Drawing::Point( 0, 44 );
-			this->flowLayoutPanel1->Name = L"flowLayoutPanel1";
-			this->flowLayoutPanel1->Size = System::Drawing::Size( 244, 100 );
-			this->flowLayoutPanel1->TabIndex = 2;
+			this->meshDD->FormattingEnabled = true;
+			this->meshDD->Location = System::Drawing::Point( 75, 56 );
+			this->meshDD->Name = L"meshDD";
+			this->meshDD->Size = System::Drawing::Size( 169, 21 );
+			this->meshDD->TabIndex = 3;
 			// 
 			// RenderObjectComponent
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF( 6, 13 );
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->Controls->Add( this->groupBox2 );
 			this->Controls->Add( this->groupBox1 );
 			this->Name = L"RenderObjectComponent";
-			this->Size = System::Drawing::Size( 250, 626 );
+			this->Size = System::Drawing::Size( 250, 105 );
 			this->groupBox1->ResumeLayout( false );
-			this->groupBox2->ResumeLayout( false );
-			this->groupBox2->PerformLayout();
+			this->groupBox1->PerformLayout();
 			this->ResumeLayout( false );
 
 		}
 #pragma endregion
-	};
+private: System::Void label2_Click( System::Object^ sender, System::EventArgs^ e )
+{}
+};
 }

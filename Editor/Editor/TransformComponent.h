@@ -1,13 +1,13 @@
 #pragma once
 
 #include "BaseComponent.h"
+#include "EnginePtr.h"
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
 using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
-#include "EnginePtr.h"
 
 namespace Editor {
 
@@ -18,6 +18,7 @@ namespace Editor {
 	{
 	private:
 		EnginePtr* engine;
+		Entity entity;
 	private: System::Windows::Forms::GroupBox^ rotationGroup;
 	private: System::Windows::Forms::MaskedTextBox^ rotZ;
 	private: System::Windows::Forms::Label^ label4;
@@ -32,7 +33,6 @@ namespace Editor {
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::MaskedTextBox^ scaleX;
 	private: System::Windows::Forms::Label^ label9;
-		   Entity entity;
 	public:
 		TransformComponent( EnginePtr* engine, Entity entity)
 		{
