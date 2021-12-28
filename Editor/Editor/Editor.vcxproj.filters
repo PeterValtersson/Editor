@@ -25,6 +25,12 @@
     <Filter Include="ComponentView\Components\RenderObjectComponent">
       <UniqueIdentifier>{87f8a538-68b3-4b5c-b173-eddbaa43b11f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Events">
+      <UniqueIdentifier>{2ede2492-cbb4-4f4d-a3fb-e257cd98e6c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PoperContainer">
+      <UniqueIdentifier>{2c9fbc14-95ec-4e44-ab0f-495a6d46f90a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainWindow.cpp">
@@ -65,6 +71,24 @@
     </ClCompile>
     <ClCompile Include="RenderObjectComponent.cpp">
       <Filter>ComponentView\Components\RenderObjectComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentViewNew.cpp">
+      <Filter>ComponentView</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentList.cpp">
+      <Filter>ComponentView</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentDecorator.cpp">
+      <Filter>ComponentView</Filter>
+    </ClCompile>
+    <ClCompile Include="AddComponentDialog.cpp">
+      <Filter>ComponentView</Filter>
+    </ClCompile>
+    <ClCompile Include="MyForm.cpp">
+      <Filter>ComponentView</Filter>
+    </ClCompile>
+    <ClCompile Include="PoperContainer.cpp">
+      <Filter>PoperContainer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +143,30 @@
     <ClInclude Include="RenderObjectComponent.h">
       <Filter>ComponentView\Components\RenderObjectComponent</Filter>
     </ClInclude>
+    <ClInclude Include="ComponentViewNew.h">
+      <Filter>ComponentView</Filter>
+    </ClInclude>
+    <ClInclude Include="Delegates.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentList.h">
+      <Filter>ComponentView</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentDecorator.h">
+      <Filter>ComponentView</Filter>
+    </ClInclude>
+    <ClInclude Include="Events.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="AddComponentDialog.h">
+      <Filter>ComponentView</Filter>
+    </ClInclude>
+    <ClInclude Include="MyForm.h">
+      <Filter>ComponentView</Filter>
+    </ClInclude>
+    <ClInclude Include="PoperContainer.h">
+      <Filter>PoperContainer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Editor.rc">
@@ -126,7 +174,13 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="TabControl_Exit.bmp">
+    <Image Include="Resources\TabControl_Exit.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Collapse.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Éxpand.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

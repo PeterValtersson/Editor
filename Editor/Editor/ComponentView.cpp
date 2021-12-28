@@ -12,10 +12,10 @@ void Editor::ComponentView::EntityChanged()
 	if ( _selectedEntity == ~0 )
 		return;
 
-	auto managers = engine->engine->get_managers();
+	auto managers = engine->engine->get_entity_components();
 
 	auto adder = gcnew AddNewComponent( gcnew AddComponentCallback( this, &ComponentView::AddComponent ) );
-	if ( managers.transform_manager->is_registered( _selectedEntity ) )
+	if ( managers.transform_component->is_registered( _selectedEntity ) )
 	{
 		auto tc = gcnew TransformComponent( engine, _selectedEntity );
 		auto tcb = gcnew ComponentControl( gcnew ComponenetSelected( this, &ComponentView::ComponentSelected ), tc );
@@ -24,14 +24,6 @@ void Editor::ComponentView::EntityChanged()
 	else
 		adder->Components->Add( gcnew TransformComponent( engine, _selectedEntity ) );
 	
-	if ( managers.re->is_registered( _selectedEntity ) )
-	{
-		auto tc = gcnew TransformComponent( engine, _selectedEntity );
-		auto tcb = gcnew ComponentControl( gcnew ComponenetSelected( this, &ComponentView::ComponentSelected ), tc );
-		componentPanel->Controls->Add( tcb );
-	}
-	else
-		adder->Components->Add( gcnew TransformComponent( engine, _selectedEntity ) );
 	//...
 
 

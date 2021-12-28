@@ -1,17 +1,18 @@
 #include "SceneView.h"
+#include "Events.h"
 
 System::Void Editor::SceneView::newSceneCMBTN_Click( System::Object^ sender, System::EventArgs^ e )
 {
-	auto manager = engine->engine->get_managers();
-	Entity entity = manager.entity_manager->Create();
-	manager.scene_manager->Create( entity, "New Scene" );
+	auto manager = engine->engine->get_entity_components();
+	Entity entity = manager.entity_factory->create();
+	manager.scene_component->create( entity, "New Scene" );
 	auto tree_node = gcnew TreeNode( "New Scene" );
 	tree_node->Tag = entity;
 	tree_node->ContextMenuStrip = sceneTreeNodeCM;
 
 	if ( cmSelectedNode )
 	{
-		manager.scene_manager->AddEntityToScene( ( Entity )cmSelectedNode->Tag, entity );
+		manager.scene_component->add_entity_to_scene( ( Entity )cmSelectedNode->Tag, entity );
 		cmSelectedNode->Nodes->Add( tree_node );
 		cmSelectedNode->Expand();
 	}
@@ -27,5 +28,5 @@ System::Void Editor::SceneView::sceneTreeNodeCM_Opening( System::Object^ sender,
 
 System::Void Editor::SceneView::scene_tree_AfterSelect( System::Object^ sender, System::Windows::Forms::TreeViewEventArgs^ e )
 {
-	component_view->selectedEntity = ( Entity )e->Node->Tag;
+	EditorEvents::on_selected_entity_changed((Entity)e->Node->Tag);
 }

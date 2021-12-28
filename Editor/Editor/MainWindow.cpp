@@ -47,15 +47,13 @@ Editor::MainWindow::MainWindow( void ) : engine( nullptr )
 
 	spliter->add_view( WindowSplit::Location::Top, render_view );
 
-
-	component_view = gcnew ComponentView( engine );
-	component_view->Dock = DockStyle::Fill;
-	component_view->Name = "Components";
-	spliter->add_view( WindowSplit::Location::Right, component_view );
-
-	scene_view = gcnew SceneView( engine, component_view );
+	scene_view = gcnew SceneView( engine );
 	spliter->add_view( WindowSplit::Location::Left, scene_view );
 
+	component_view = gcnew ComponentViewNew(engine);
+	component_view->Dock = DockStyle::Fill;
+	component_view->Name = "Components";
+	spliter->add_view(WindowSplit::Location::Right, component_view);
 
 }
 

@@ -153,11 +153,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AddComponentDialog.cpp" />
     <ClCompile Include="AddNewComponent.cpp" />
     <ClCompile Include="ComponentControl.cpp" />
+    <ClCompile Include="ComponentDecorator.cpp" />
+    <ClCompile Include="ComponentList.cpp" />
     <ClCompile Include="ComponentView.cpp" />
+    <ClCompile Include="ComponentViewNew.cpp" />
     <ClCompile Include="EngineWindowInterface.cpp" />
     <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="PoperContainer.cpp" />
     <ClCompile Include="PropertyComponent.cpp" />
     <ClCompile Include="RenderObjectComponent.cpp" />
     <ClCompile Include="RenderView.cpp" />
@@ -168,6 +174,9 @@
     <ClCompile Include="WindowSplit.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddComponentDialog.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="AddNewComponent.h">
       <FileType>CppControl</FileType>
     </ClInclude>
@@ -175,13 +184,30 @@
     <ClInclude Include="ComponentControl.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="ComponentDecorator.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="ComponentList.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="ComponentView.h">
       <FileType>CppControl</FileType>
     </ClInclude>
+    <ClInclude Include="ComponentViewNew.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
+    <ClInclude Include="Delegates.h" />
     <ClInclude Include="EnginePtr.h" />
     <ClInclude Include="EngineWindowInterface.h" />
+    <ClInclude Include="Events.h" />
     <ClInclude Include="MainWindow.h">
       <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="PoperContainer.h">
+      <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="PropertyComponent.h">
       <FileType>CppControl</FileType>
@@ -211,17 +237,32 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddComponentDialog.resx">
+      <DependentUpon>AddComponentDialog.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddNewComponent.resx">
       <DependentUpon>AddNewComponent.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ComponentControl.resx">
       <DependentUpon>ComponentControl.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ComponentDecorator.resx">
+      <DependentUpon>ComponentDecorator.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComponentList.resx">
+      <DependentUpon>ComponentList.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ComponentView.resx">
       <DependentUpon>ComponentView.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ComponentViewNew.resx">
+      <DependentUpon>ComponentViewNew.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm.resx">
+      <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PropertyComponent.resx">
       <DependentUpon>PropertyComponent.h</DependentUpon>
@@ -260,7 +301,9 @@
     <ResourceCompile Include="Editor.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="TabControl_Exit.bmp" />
+    <Image Include="Resources\Collapse.png" />
+    <Image Include="Resources\TabControl_Exit.png" />
+    <Image Include="Resources\Éxpand.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

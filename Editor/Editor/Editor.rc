@@ -44,15 +44,29 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
+#endif    // Swedish (Sweden) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United Kingdom) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
+#pragma code_page(1252)
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// Bitmap
+// PNG
 //
 
-IDB_TABCONTROLEXIT      BITMAP                  "TabControl_Exit.bmp"
+IDB_PNG2                PNG                     "Resources\\TabControl_Exit.png"
 
-#endif    // Swedish (Sweden) resources
+IDB_PNG3                PNG                     "Resources\\Collapse.png"
+
+IDB_PNG4                PNG                     "Resources\\Éxpand.png"
+
+#endif    // English (United Kingdom) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

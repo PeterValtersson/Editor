@@ -6,6 +6,7 @@
 #include "EnginePtr.h"
 #include "RenderView.h"
 #include "ComponentView.h"
+#include "ComponentViewNew.h"
 
 
 namespace Editor {
@@ -31,7 +32,7 @@ namespace Editor {
 		WindowSplit^ spliter;
 		SceneView^ scene_view;
 		RenderView^ render_view;
-		ComponentView^ component_view;
+		ComponentViewNew^ component_view;
 	public:
 		MainWindow( void );
 

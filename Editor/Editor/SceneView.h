@@ -1,6 +1,7 @@
 #pragma once
 #include "EnginePtr.h"
 #include "ComponentView.h"
+#include "Delegates.h"
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -21,16 +22,13 @@ namespace Editor
 		EnginePtr* engine;
 
 		TreeNode^ cmSelectedNode;
-		ComponentView^ component_view;
+		
 	public:
-		SceneView( EnginePtr* engine, ComponentView^ component_view ) : engine( engine ), component_view( component_view )
+		SelectedEntityChanged^ test;
+		SceneView( EnginePtr* engine ) : engine( engine )
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
 		}
-
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
