@@ -16,10 +16,12 @@ namespace Editor {
 	public ref class ComponentDecorator : public System::Windows::Forms::UserControl
 	{
 	public:
-		ComponentDecorator(Control^ component_content_control)
+		ComponentDecorator(Control^ component_content_control, int parent_width)
 		{
 			InitializeComponent();
 			component_content->Controls->Add(component_content_control);
+			Width = parent_width;
+			Height = component_content_control->Height + menuStrip1->Height;
 		}
 
 	protected:
@@ -76,7 +78,7 @@ namespace Editor {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(0, 24);
+			this->menuStrip1->Size = System::Drawing::Size(397, 24);
 			this->menuStrip1->TabIndex = 0;
 			// 
 			// collapse
@@ -115,20 +117,21 @@ namespace Editor {
 			this->component_content->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->component_content->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->component_content->Location = System::Drawing::Point(0, 24);
+			this->component_content->Margin = System::Windows::Forms::Padding(0);
 			this->component_content->Name = L"component_content";
-			this->component_content->Size = System::Drawing::Size(0, 0);
+			this->component_content->Size = System::Drawing::Size(397, 277);
 			this->component_content->TabIndex = 1;
 			// 
 			// ComponentDecorator
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->AutoSize = true;
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->Controls->Add(this->component_content);
 			this->Controls->Add(this->menuStrip1);
+			this->Margin = System::Windows::Forms::Padding(0);
 			this->Name = L"ComponentDecorator";
-			this->Size = System::Drawing::Size(0, 24);
+			this->Size = System::Drawing::Size(397, 301);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);

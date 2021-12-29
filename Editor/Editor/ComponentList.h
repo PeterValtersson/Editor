@@ -26,9 +26,26 @@ namespace Editor {
 
 		void add_component(Control^ component_control)
 		{
-			auto deco = gcnew ComponentDecorator(component_control);
+			auto deco = gcnew ComponentDecorator(component_control, component_list->Width);
 			deco->Anchor = AnchorStyles::Left | AnchorStyles::Right;
 			component_list->Controls->Add(deco);
+			auto  new_height = component_list->Height + deco->Height;
+			component_list->Height = new_height;
+			Height = new_height;
+		}
+
+		virtual property int Width
+		{
+			void set(int width){
+				UserControl::Width = width;
+				component_list->Width = width;
+				for each (Control^ o in component_list->Controls)
+				{
+					o->Margin.Left = 0;
+					o->Margin.Right = 0;
+					o->Width = width;
+				}
+			}
 		}
 	protected:
 		/// <summary>
@@ -66,12 +83,12 @@ namespace Editor {
 			// 
 			// component_list
 			// 
-			this->component_list->AutoSize = true;
 			this->component_list->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->component_list->BackColor = System::Drawing::SystemColors::ControlDark;
 			this->component_list->Controls->Add(this->button1);
 			this->component_list->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
 			this->component_list->Location = System::Drawing::Point(0, 0);
+			this->component_list->Margin = System::Windows::Forms::Padding(0);
 			this->component_list->Name = L"component_list";
 			this->component_list->Size = System::Drawing::Size(81, 29);
 			this->component_list->TabIndex = 0;
@@ -89,14 +106,13 @@ namespace Editor {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->AutoSize = true;
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->Controls->Add(this->component_list);
+			this->Margin = System::Windows::Forms::Padding(0);
 			this->Name = L"ComponentList";
-			this->Size = System::Drawing::Size(84, 32);
+			this->Size = System::Drawing::Size(254, 217);
 			this->component_list->ResumeLayout(false);
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion

@@ -31,18 +31,15 @@
     <Filter Include="PoperContainer">
       <UniqueIdentifier>{2c9fbc14-95ec-4e44-ab0f-495a6d46f90a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Page Layout">
+      <UniqueIdentifier>{80457752-45b2-4226-a461-56c1f7e33ba1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EngineWindowInterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WindowSplit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TabControlWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RenderView.cpp">
@@ -90,6 +87,15 @@
     <ClCompile Include="PoperContainer.cpp">
       <Filter>PoperContainer</Filter>
     </ClCompile>
+    <ClCompile Include="TabControlWindow.cpp">
+      <Filter>Page Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowSplit.cpp">
+      <Filter>Page Layout</Filter>
+    </ClCompile>
+    <ClCompile Include="TabLayout.cpp">
+      <Filter>Page Layout</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainWindow.h">
@@ -102,12 +108,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SceneView.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowSplit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TabControlWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
@@ -166,6 +166,15 @@
     </ClInclude>
     <ClInclude Include="PoperContainer.h">
       <Filter>PoperContainer</Filter>
+    </ClInclude>
+    <ClInclude Include="TabControlWindow.h">
+      <Filter>Page Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowSplit.h">
+      <Filter>Page Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="TabLayout.h">
+      <Filter>Page Layout</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

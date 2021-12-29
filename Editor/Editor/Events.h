@@ -2,26 +2,6 @@
 #include "Delegates.h"
 namespace Editor
 {
-    public ref class OnSelectedEntityChanged
-    {
-    public:
-        void operator+=(SelectedEntityChanged^ d)
-        {
-            del += d;
-        }
-        void operator-=(SelectedEntityChanged^ d)
-        {
-            del -= d;
-        }
-        void operator()(Entity ent) {
-            if (del) {
-                del->Invoke(ent);
-            }
-        }
-    private:
-        SelectedEntityChanged^ del;
-    };
-
     template <typename... Args>
     public ref class Event
     {

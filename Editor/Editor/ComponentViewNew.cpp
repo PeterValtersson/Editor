@@ -21,7 +21,10 @@ void Editor::ComponentViewNew::set_entity(Entity entity)
 				add_component_dialog->add_component(component);
 		}
 
-	
+	component_list_panel->Width = tableLayoutPanel1->Width - tableLayoutPanel1->Margin.Horizontal;
+	component_list->Width = tableLayoutPanel1->Width - tableLayoutPanel1->Margin.Horizontal;
+
+	component_list_panel->Height = component_list->Height;
 }
 
 System::Void Editor::ComponentViewNew::add_component_Click(System::Object^ sender, System::EventArgs^ e)

@@ -24,7 +24,6 @@ namespace Editor
 		TreeNode^ cmSelectedNode;
 		
 	public:
-		SelectedEntityChanged^ test;
 		SceneView( EnginePtr* engine ) : engine( engine )
 		{
 			InitializeComponent();

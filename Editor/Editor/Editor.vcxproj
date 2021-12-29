@@ -170,6 +170,7 @@
     <ClCompile Include="ResourceView.cpp" />
     <ClCompile Include="SceneView.cpp" />
     <ClCompile Include="TabControlWindow.cpp" />
+    <ClCompile Include="TabLayout.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
     <ClCompile Include="WindowSplit.cpp" />
   </ItemGroup>
@@ -227,13 +228,16 @@
     </ClInclude>
     <ClInclude Include="StringHelpers.h" />
     <ClInclude Include="TabControlWindow.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="TabLayout.h">
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="TransformComponent.h">
       <FileType>CppControl</FileType>
     </ClInclude>
     <ClInclude Include="WindowSplit.h">
-      <FileType>CppControl</FileType>
+      <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -273,20 +277,23 @@
     <EmbeddedResource Include="RenderView.resx">
       <DependentUpon>RenderView.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TabControlWindow.resx">
+      <DependentUpon>TabControlWindow.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TabLayout.resx">
+      <DependentUpon>TabLayout.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowSplit.resx">
+      <DependentUpon>WindowSplit.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResourceView.resx">
       <DependentUpon>ResourceView.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SceneView.resx">
       <DependentUpon>SceneView.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TabControlWindow.resx">
-      <DependentUpon>TabControlWindow.h</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="TransformComponent.resx">
       <DependentUpon>TransformComponent.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WindowSplit.resx">
-      <DependentUpon>WindowSplit.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -7,22 +7,22 @@ void Editor::WindowSplit::add_view( Location location, Control^ control )
 
 void Editor::WindowSplit::setup_spliters()
 {
-	if ( views[Location::Left]->Count == 0 )
+	if ( views[Location::Left]->tabs == 0 )
 		split1->Panel1Collapsed = true;
 	else
 		split1->Panel1Collapsed = false;
 
-	if ( views[Location::Right]->Count == 0 )
+	if ( views[Location::Right]->tabs == 0 )
 		split2->Panel2Collapsed = true;
 	else
 		split2->Panel2Collapsed = false;
 
-	if ( views[Location::Top]->Count == 0 )
+	if ( views[Location::Top]->tabs == 0 )
 		split3->Panel1Collapsed = true;
 	else
 		split3->Panel1Collapsed = false;
 
-	if ( views[Location::Bottom]->Count == 0 )
+	if ( views[Location::Bottom]->tabs == 0 )
 		split3->Panel2Collapsed = true;
 	else
 		split3->Panel2Collapsed = false;

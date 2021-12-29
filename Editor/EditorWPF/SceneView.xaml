@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="EditorWPF.SceneView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EditorWPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <TreeView x:Name="scene_tree" MouseDown="scene_tree_MouseDown" SelectedItemChanged="scene_tree_SelectedItemChanged">
+            <TreeView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="test" Click="MenuItem_Click"/>
+                </ContextMenu>
+            </TreeView.ContextMenu>
+        </TreeView>
+
+    </Grid>
+</UserControl>

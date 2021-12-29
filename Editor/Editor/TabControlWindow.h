@@ -21,6 +21,7 @@ namespace Editor
 		TabControlWindow( void )
 		{
 			InitializeComponent();
+			content_tabs = gcnew Generic::List<Control^>();
 		}
 		property System::Windows::Forms::MenuStrip^ menu
 		{
@@ -29,13 +30,13 @@ namespace Editor
 				return menuStrip1;
 			}
 		}
-		property System::Windows::Forms::TabControl^ tabs
-		{
-			System::Windows::Forms::TabControl^ get()
+		property int tabs {
+			int get()
 			{
-				return tabControl1;
+				return content_tabs->Count;
 			}
 		}
+		void add_view(Control^ control);
 		void hide_tabs( bool hide );
 	protected:
 		/// <summary>
@@ -53,9 +54,14 @@ namespace Editor
 	protected:
 
 	private: System::Windows::Forms::ToolStripMenuItem^ aToolStripMenuItem;
-	private: System::Windows::Forms::TabControl^ tabControl1;
+	private: System::Windows::Forms::Panel^ content_panel;
+
+
 
 	private:
+		Generic::List<Control^>^ content_tabs;
+
+
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -72,7 +78,7 @@ namespace Editor
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->tabText = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
+			this->content_panel = (gcnew System::Windows::Forms::Panel());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -102,24 +108,22 @@ namespace Editor
 			this->aToolStripMenuItem->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->aToolStripMenuItem->Size = System::Drawing::Size(28, 20);
 			// 
-			// tabControl1
+			// content_panel
 			// 
-			this->tabControl1->Alignment = System::Windows::Forms::TabAlignment::Bottom;
-			this->tabControl1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->tabControl1->Location = System::Drawing::Point(0, 24);
-			this->tabControl1->Name = L"tabControl1";
-			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(387, 553);
-			this->tabControl1->TabIndex = 1;
-			this->tabControl1->TabIndexChanged += gcnew System::EventHandler(this, &TabControlWindow::tabControl1_TabIndexChanged);
-			this->tabControl1->ControlAdded += gcnew System::Windows::Forms::ControlEventHandler(this, &TabControlWindow::tabControl1_ControlAdded);
+			this->content_panel->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->content_panel->Location = System::Drawing::Point(0, 24);
+			this->content_panel->Margin = System::Windows::Forms::Padding(0);
+			this->content_panel->Name = L"content_panel";
+			this->content_panel->Size = System::Drawing::Size(387, 553);
+			this->content_panel->TabIndex = 1;
 			// 
 			// TabControlWindow
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->Controls->Add(this->tabControl1);
+			this->Controls->Add(this->content_panel);
 			this->Controls->Add(this->menuStrip1);
+			this->Margin = System::Windows::Forms::Padding(0);
 			this->Name = L"TabControlWindow";
 			this->Size = System::Drawing::Size(387, 577);
 			this->menuStrip1->ResumeLayout(false);

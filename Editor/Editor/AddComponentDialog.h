@@ -47,7 +47,7 @@ namespace Editor {
 		void add_component(std::shared_ptr<ECS::ComponentReflection> component)
 		{
 			auto btn = gcnew Btn(component);
-			btn->Click += gcnew System::EventHandler(this, &Editor::AddComponentDialog::OnClick);
+			btn->Click += gcnew System::EventHandler(this, &Editor::AddComponentDialog::on_tab_button_click);
 			component_list->Controls->Add(btn);
 		}
 	protected:
@@ -67,6 +67,7 @@ namespace Editor {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Panel^ component_panel;
 	private: System::Windows::Forms::FlowLayoutPanel^ component_list;
+	private: System::Windows::Forms::Button^ button1;
 
 
 
@@ -87,8 +88,10 @@ namespace Editor {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->component_panel = (gcnew System::Windows::Forms::Panel());
 			this->component_list = (gcnew System::Windows::Forms::FlowLayoutPanel());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->component_panel->SuspendLayout();
+			this->component_list->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tableLayoutPanel1
@@ -131,12 +134,22 @@ namespace Editor {
 			// component_list
 			// 
 			this->component_list->BackColor = System::Drawing::SystemColors::ControlDark;
+			this->component_list->Controls->Add(this->button1);
 			this->component_list->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->component_list->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
 			this->component_list->Location = System::Drawing::Point(0, 0);
 			this->component_list->Name = L"component_list";
 			this->component_list->Size = System::Drawing::Size(405, 368);
 			this->component_list->TabIndex = 0;
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(3, 3);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 0;
+			this->button1->Text = L"button1";
+			this->button1->UseVisualStyleBackColor = true;
 			// 
 			// AddComponentDialog
 			// 
@@ -149,11 +162,12 @@ namespace Editor {
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel1->PerformLayout();
 			this->component_panel->ResumeLayout(false);
+			this->component_list->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-		void OnClick(System::Object^ sender, System::EventArgs^ e);
+		void on_tab_button_click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void AddComponentDialog_Leave(System::Object^ sender, System::EventArgs^ e) {
 	this->Hide();
 	

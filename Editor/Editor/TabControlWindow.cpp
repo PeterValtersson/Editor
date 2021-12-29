@@ -1,5 +1,10 @@
 #include "TabControlWindow.h"
 
+void Editor::TabControlWindow::add_view(Control^ control)
+{
+	throw gcnew System::NotImplementedException();
+}
+
 void Editor::TabControlWindow::hide_tabs( bool hide )
 {
 	if ( hide )

@@ -27,26 +27,22 @@ namespace Editor {
 		{
 			InitializeComponent();
 	
+			views[Location::Left] = gcnew TabControlWindow;
+			views[Location::Left]->Dock = DockStyle::Fill;
+			split1->Panel1->Controls->Add(views[Location::Left]);
 
-			left_views = gcnew TabControlWindow;
-			left_views->Dock = DockStyle::Fill;
-			split1->Panel1->Controls->Add( left_views );
-			right_views = gcnew TabControlWindow;
-			right_views->Dock = DockStyle::Fill;
-			split2->Panel2->Controls->Add( right_views );
-			top_views = gcnew TabControlWindow;
-			top_views->Dock = DockStyle::Fill;
-			top_views->menu->Visible = false;
-			top_views->tabs->Alignment = TabAlignment::Top;
-			top_views->Dock = DockStyle::Fill;
-			split3->Panel1->Controls->Add( top_views );
-			bottom_views = gcnew TabControlWindow;
-			split3->Panel2->Controls->Add( bottom_views );
+			views[Location::Right] = gcnew TabControlWindow;
+			views[Location::Right]->Dock = DockStyle::Fill;
+			split2->Panel2->Controls->Add(views[Location::Right]);
 
-			views[Location::Left] = gcnew Generic::List<Control^>();
-			views[Location::Right] = gcnew Generic::List<Control^>();
-			views[Location::Top] = gcnew Generic::List<Control^>();
-			views[Location::Bottom] = gcnew Generic::List<Control^>();
+			views[Location::Top] = gcnew TabControlWindow;
+			views[Location::Top]->Dock = DockStyle::Fill;
+			split3->Panel1->Controls->Add(views[Location::Top]);
+
+			views[Location::Bottom] = gcnew TabControlWindow;
+			views[Location::Bottom]->Dock = DockStyle::Fill;
+			split3->Panel2->Controls->Add(views[Location::Bottom]);
+
 		}
 
 		void add_view( Location location, Control^ control );
@@ -87,16 +83,16 @@ namespace Editor {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->split1 = ( gcnew System::Windows::Forms::SplitContainer() );
-			this->split2 = ( gcnew System::Windows::Forms::SplitContainer() );
-			this->split3 = ( gcnew System::Windows::Forms::SplitContainer() );
-			( cli::safe_cast< System::ComponentModel::ISupportInitialize^ >( this->split1 ) )->BeginInit();
+			this->split1 = (gcnew System::Windows::Forms::SplitContainer());
+			this->split2 = (gcnew System::Windows::Forms::SplitContainer());
+			this->split3 = (gcnew System::Windows::Forms::SplitContainer());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->split1))->BeginInit();
 			this->split1->Panel2->SuspendLayout();
 			this->split1->SuspendLayout();
-			( cli::safe_cast< System::ComponentModel::ISupportInitialize^ >( this->split2 ) )->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->split2))->BeginInit();
 			this->split2->Panel1->SuspendLayout();
 			this->split2->SuspendLayout();
-			( cli::safe_cast< System::ComponentModel::ISupportInitialize^ >( this->split3 ) )->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->split3))->BeginInit();
 			this->split3->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -104,13 +100,14 @@ namespace Editor {
 			// 
 			this->split1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->split1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->split1->Location = System::Drawing::Point( 0, 0 );
+			this->split1->Location = System::Drawing::Point(0, 0);
+			this->split1->Margin = System::Windows::Forms::Padding(0);
 			this->split1->Name = L"split1";
 			// 
 			// split1.Panel2
 			// 
-			this->split1->Panel2->Controls->Add( this->split2 );
-			this->split1->Size = System::Drawing::Size( 555, 515 );
+			this->split1->Panel2->Controls->Add(this->split2);
+			this->split1->Size = System::Drawing::Size(555, 515);
 			this->split1->SplitterDistance = 185;
 			this->split1->TabIndex = 0;
 			// 
@@ -118,13 +115,14 @@ namespace Editor {
 			// 
 			this->split2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->split2->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->split2->Location = System::Drawing::Point( 0, 0 );
+			this->split2->Location = System::Drawing::Point(0, 0);
+			this->split2->Margin = System::Windows::Forms::Padding(0);
 			this->split2->Name = L"split2";
 			// 
 			// split2.Panel1
 			// 
-			this->split2->Panel1->Controls->Add( this->split3 );
-			this->split2->Size = System::Drawing::Size( 366, 515 );
+			this->split2->Panel1->Controls->Add(this->split3);
+			this->split2->Size = System::Drawing::Size(366, 515);
 			this->split2->SplitterDistance = 177;
 			this->split2->TabIndex = 0;
 			// 
@@ -132,7 +130,8 @@ namespace Editor {
 			// 
 			this->split3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->split3->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->split3->Location = System::Drawing::Point( 0, 0 );
+			this->split3->Location = System::Drawing::Point(0, 0);
+			this->split3->Margin = System::Windows::Forms::Padding(0);
 			this->split3->Name = L"split3";
 			this->split3->Orientation = System::Windows::Forms::Orientation::Horizontal;
 			// 
@@ -144,36 +143,33 @@ namespace Editor {
 			// 
 			this->split3->Panel2->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->split3->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			this->split3->Size = System::Drawing::Size( 177, 515 );
+			this->split3->Size = System::Drawing::Size(177, 515);
 			this->split3->SplitterDistance = 271;
 			this->split3->TabIndex = 0;
 			// 
 			// WindowSplit
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF( 6, 13 );
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->Controls->Add( this->split1 );
+			this->Controls->Add(this->split1);
+			this->Margin = System::Windows::Forms::Padding(0);
 			this->Name = L"WindowSplit";
-			this->Size = System::Drawing::Size( 555, 515 );
-			this->split1->Panel2->ResumeLayout( false );
-			( cli::safe_cast< System::ComponentModel::ISupportInitialize^ >( this->split1 ) )->EndInit();
-			this->split1->ResumeLayout( false );
-			this->split2->Panel1->ResumeLayout( false );
-			( cli::safe_cast< System::ComponentModel::ISupportInitialize^ >( this->split2 ) )->EndInit();
-			this->split2->ResumeLayout( false );
-			( cli::safe_cast< System::ComponentModel::ISupportInitialize^ >( this->split3 ) )->EndInit();
-			this->split3->ResumeLayout( false );
-			this->ResumeLayout( false );
+			this->Size = System::Drawing::Size(555, 515);
+			this->split1->Panel2->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->split1))->EndInit();
+			this->split1->ResumeLayout(false);
+			this->split2->Panel1->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->split2))->EndInit();
+			this->split2->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->split3))->EndInit();
+			this->split3->ResumeLayout(false);
+			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 
 	private:
-		Generic::Dictionary<Location, Generic::List<Control^>^> views;
-		TabControlWindow^ left_views;
-		TabControlWindow^ right_views;
-		TabControlWindow^ top_views;
-		TabControlWindow^ bottom_views;
+		Generic::Dictionary<Location, TabControlWindow^> views;
 	private:
 		void setup_spliters();
 	};

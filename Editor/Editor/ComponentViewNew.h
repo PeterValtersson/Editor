@@ -74,6 +74,7 @@ namespace Editor {
 			// 
 			// tableLayoutPanel1
 			// 
+			this->tableLayoutPanel1->BackColor = System::Drawing::SystemColors::ControlDarkDark;
 			this->tableLayoutPanel1->ColumnCount = 1;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				100)));
@@ -81,6 +82,7 @@ namespace Editor {
 			this->tableLayoutPanel1->Controls->Add(this->add_component, 0, 2);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
+			this->tableLayoutPanel1->Margin = System::Windows::Forms::Padding(0);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
 			this->tableLayoutPanel1->RowCount = 3;
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Absolute, 47)));
@@ -91,8 +93,8 @@ namespace Editor {
 			// 
 			// component_list_panel
 			// 
-			this->component_list_panel->AutoSize = true;
-			this->component_list_panel->Location = System::Drawing::Point(3, 50);
+			this->component_list_panel->Location = System::Drawing::Point(0, 47);
+			this->component_list_panel->Margin = System::Windows::Forms::Padding(0);
 			this->component_list_panel->Name = L"component_list_panel";
 			this->component_list_panel->Size = System::Drawing::Size(0, 0);
 			this->component_list_panel->TabIndex = 0;
@@ -102,7 +104,7 @@ namespace Editor {
 			this->add_component->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->add_component->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
-			this->add_component->Location = System::Drawing::Point(40, 56);
+			this->add_component->Location = System::Drawing::Point(40, 50);
 			this->add_component->Margin = System::Windows::Forms::Padding(40, 3, 40, 3);
 			this->add_component->Name = L"add_component";
 			this->add_component->Size = System::Drawing::Size(350, 23);
@@ -117,10 +119,10 @@ namespace Editor {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoScroll = true;
 			this->Controls->Add(this->tableLayoutPanel1);
+			this->Margin = System::Windows::Forms::Padding(0);
 			this->Name = L"ComponentViewNew";
 			this->Size = System::Drawing::Size(430, 680);
 			this->tableLayoutPanel1->ResumeLayout(false);
-			this->tableLayoutPanel1->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
