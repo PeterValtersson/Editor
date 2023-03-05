@@ -33,6 +33,10 @@ namespace EditorWPF
             Grid.SetColumn(render_view, 2);
             content_grid.Children.Add(render_view);
             engine.init(render_view.get_HWND(), render_view.get_resoulution());
+
+            var scene_view = new SceneView(engine);
+            left_tab_panel.add_tab(scene_view);
+            right_tab_panel.add_tab(new ComponentView.ComponentView(scene_view));
         }
 
     }

@@ -10,7 +10,9 @@
         <TreeView x:Name="scene_tree" MouseDown="scene_tree_MouseDown" SelectedItemChanged="scene_tree_SelectedItemChanged">
             <TreeView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="test" Click="MenuItem_Click"/>
+                    <MenuItem Header="New Scene" Click="NewScene_Click"/>
+                    <Separator></Separator>
+                    <MenuItem Header="Raname" Click="Rename_Click"/>
                 </ContextMenu>
             </TreeView.ContextMenu>
         </TreeView>

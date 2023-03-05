@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="EditorWPF.ComponentView.ComponentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EditorWPF.ComponentView"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="add_component_btn" Content="Add Component" HorizontalAlignment="Stretch" Margin="50,0,50,0" Grid.Row="2" VerticalAlignment="Center"
+                ContextMenuService.IsEnabled="False"
+                Click="add_component_btn_Click">
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <ContextMenu.Template>
+                            <ControlTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Button Grid.Row="0" Width="200" Height="30"></Button>
+                                    <Button Grid.Row="1" Width="200" Height="30"></Button>
+                                </Grid>
+                            </ControlTemplate>
+                        </ContextMenu.Template>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+            <local:ComponentList x:Name="component_list" HorizontalAlignment="Stretch" Margin="0,0,0,0" Grid.Row="1" VerticalAlignment="Stretch"/>
+            <TextBox x:Name="entity_name" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Stretch" Width="120" TextChanged="entity_name_TextChanged"/>
+
+        </Grid>
+    </ScrollViewer>
+    
+</UserControl>
