@@ -25,6 +25,8 @@
     <RootNamespace>EditorInterop</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <TargetFramework>net7.0</TargetFramework>
+    <TargetFrameworkVersion>
+    </TargetFrameworkVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -74,7 +76,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)../../EntityComponentSystem/EntityComponentSystem/Include/;$(SolutionDir)../../Renderer/Renderer/Include/;$(SolutionDir)../../Utilities/Utilities/Include;$(SolutionDir)../../Engine/Engine/include;$(SolutionDir)../../Resource-Handler\ResourceHandler/include</IncludePath>
+    <IncludePath>$(SolutionDir)../..\json\single_include\nlohmann;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)../../EntityComponentSystem/EntityComponentSystem/Include/;$(SolutionDir)../../Renderer/Renderer/Include/;$(SolutionDir)../../Utilities/Utilities/Include;$(SolutionDir)../../Engine/Engine/include;$(SolutionDir)../../Resource-Handler\ResourceHandler/include</IncludePath>
     <OutDir>$(SolutionDir)Build/$(Configuration)/$(Platform)/</OutDir>
     <IntDir>$(ProjectDir)Intermediate/$(Configuration)/$(Platform)/</IntDir>
   </PropertyGroup>
@@ -124,6 +126,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ComponentReflection.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="EngineWindow.h" />
     <ClInclude Include="EntityFactory.h" />
@@ -133,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="ComponentReflection.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="EngineWindow.cpp" />
     <ClCompile Include="EntityFactory.cpp" />

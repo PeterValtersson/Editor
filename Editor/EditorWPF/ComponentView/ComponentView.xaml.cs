@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EditorInterop;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,16 +17,34 @@ using System.Windows.Shapes;
 
 namespace EditorWPF.ComponentView
 {
+  
     /// <summary>
     /// Interaction logic for ComponentView.xaml
     /// </summary>
     public partial class ComponentView : UserControl
     {
         private Entity selected_entity;
-        public ComponentView(OnSelectedEntityChanged onSelectedEntityChanged)
+        private List<ComponentReflection> components;
+        private ContextMenu contextMenu;
+        public ComponentView(OnSelectedEntityChanged onSelectedEntityChanged, List<ComponentReflection> components)
         {
             InitializeComponent();
             onSelectedEntityChanged.OnSelectedEntityChanged += OnSelectedEntityChanged_OnSelectedEntityChanged;
+            this.components = components;
+
+            foreach (var component in components)
+            {
+                var json = component.get_reflection_meta_data();
+                var data = JsonConvert.DeserializeObject<Reflection>(json);
+                
+                Button btn = new Button();
+                btn.Width = Double.NaN;
+                btn.Content = data.Name;
+               // add_component_btn.ContextMenu.Items.Add(btn);
+               // contextMenu.Template;
+                //add_component_btn.ContextMenu.Items.Add(btn);
+            }
+            //add_component_btn.ContextMenu.Items;
         }
 
         private void OnSelectedEntityChanged_OnSelectedEntityChanged(Entity entity)
@@ -56,6 +76,7 @@ namespace EditorWPF.ComponentView
             contextMenu.Placement = System.Windows.Controls.Primitives.PlacementMode.Bottom;
             contextMenu.IsOpen = true;
             e.Handled = true;
+
         }
     }
 }

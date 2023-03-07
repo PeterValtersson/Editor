@@ -18,3 +18,12 @@ void EditorInterop::Engine::init(IntPtr hwnd, Drawing::Size resolution)
 		throw gcnew Exception(gcnew String(e.what()));
 	}
 }
+
+List<EditorInterop::ComponentReflection^>^ EditorInterop::Engine::get_component_reflections()
+{
+	auto list = gcnew List<EditorInterop::ComponentReflection^>();
+	auto components = (*engine)->get_component_reflections();
+	for (auto& c : components)
+		list->Add(gcnew EditorInterop::ComponentReflection(c));
+	return list;
+}
