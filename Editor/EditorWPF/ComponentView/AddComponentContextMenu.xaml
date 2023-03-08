@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EditorWPF.ComponentView"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Height="300">
+             d:DesignHeight="450" d:DesignWidth="800" Height="300" Unloaded="UserControl_Unloaded">
     <UserControl.Background>
         <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
     </UserControl.Background>
@@ -15,15 +15,15 @@
             <RowDefinition Height="25"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Border Grid.Row="1">
+        <Border Grid.Row="1" MouseLeftButtonUp="Border_MouseLeftButtonUp">
             <Border.Background>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlLightColorKey}}"/>
             </Border.Background>
         </Border>
         <TextBox Margin="2,2,2,3" TextWrapping="Wrap" Text="TextBox" Width="NaN" Height="NaN"/>
-        <Label x:Name="component_name" Content="Component" Margin="0" Grid.Row="1" Width="NaN" Height="NaN" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" />
+        
+        <Label x:Name="component_name" Content="Component" Margin="0" Grid.Row="1" Width="NaN" Height="NaN" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" MouseLeftButtonUp="component_name_MouseLeftButtonUp" />
         <Label x:Name="component_hide" Content="&lt;" Margin="0" Grid.Row="1" Width="NaN" Height="NaN" HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="Hidden" MouseLeftButtonUp="component_hide_MouseLeftButtonUp" />
-
         <StackPanel x:Name="component_list" Grid.Row="2" Loaded="component_list_Loaded"/>
         <Grid x:Name="add_component_page" Grid.Row="2" Visibility="Hidden"/>
 

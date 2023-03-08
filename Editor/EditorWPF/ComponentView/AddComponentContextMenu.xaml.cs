@@ -27,11 +27,14 @@ namespace EditorWPF.ComponentView
         }
         private void component_list_Loaded(object sender, RoutedEventArgs e)
         {
-            var components = ComponentSingleton.GetAddComponentContextMenuContent();
+            var components = ComponentSingleton.GetComponentNameList();
+            component_list.Children.Clear();
             foreach (var component in components)
             {
-                component.Click += Component_Click;
-                component_list.Children.Add(component);
+                var btn = new Button();
+                btn.Content = component;
+                btn.Click += Component_Click;
+                component_list.Children.Add(btn);
             }
 
         }
@@ -42,16 +45,35 @@ namespace EditorWPF.ComponentView
             component_list.Visibility = Visibility.Hidden;
             add_component_page.Children.Clear();
             component_name.Content = (sender as Button).Content;
-            var content = (sender as Button).Tag as StackPanel;
-            add_component_page.Children.Add(content);
+
+            add_component_page.Children.Add(ComponentControlBuilder.BuildComponentFieldsWithAddButton(ComponentSingleton.FindComponentReflection(component_name.Content as string)));
             add_component_page.Visibility = Visibility.Visible;
         }
-
         private void component_hide_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            ReturnToComponentList();
+        }
+
+        private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            ReturnToComponentList();
+        }
+
+        private void component_name_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            ReturnToComponentList();
+        }
+        private void UserControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+            ReturnToComponentList();
+        }
+        private void ReturnToComponentList()
+        {
+            component_name.Content = "Component";
             component_list.Visibility = Visibility.Visible;
             component_hide.Visibility = Visibility.Hidden;
             add_component_page.Children.Clear();
         }
+
     }
 }

@@ -15,21 +15,17 @@ using System.Windows.Shapes;
 
 namespace EditorWPF
 {
-    public delegate void SelectedEntityChanged(Entity entity);
-    public partial interface OnSelectedEntityChanged
-    {
-        public event SelectedEntityChanged OnSelectedEntityChanged;
-    }
+
+  
     /// <summary>
     /// Interaction logic for SceneView.xaml
     /// </summary>
-    public partial class SceneView : UserControl, OnSelectedEntityChanged
+    public partial class SceneView : UserControl
     {
         private TreeViewItem selected_item;
         private TextBox editing_textbox;
         private String editing_name_backup;
         private EditorInterop.Engine engine;
-        public event SelectedEntityChanged OnSelectedEntityChanged;
 
         public SceneView(EditorInterop.Engine engine)
         {
@@ -109,8 +105,7 @@ namespace EditorWPF
         private void scene_tree_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             selected_item = e.NewValue as TreeViewItem;
-            if (OnSelectedEntityChanged is not null)
-                OnSelectedEntityChanged(selected_item.Tag as Entity);
+            ComponentSingleton.SetCurrentEntity(selected_item.Tag as Entity);
             e.Handled = true;
         }
 

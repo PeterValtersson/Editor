@@ -24,27 +24,11 @@ namespace EditorWPF.ComponentView
     public partial class ComponentView : UserControl
     {
         private Entity selected_entity;
-        private List<ComponentReflection> components;
         private ContextMenu contextMenu;
-        public ComponentView(OnSelectedEntityChanged onSelectedEntityChanged, List<ComponentReflection> components)
+        public ComponentView()
         {
             InitializeComponent();
-            onSelectedEntityChanged.OnSelectedEntityChanged += OnSelectedEntityChanged_OnSelectedEntityChanged;
-            this.components = components;
-
-            foreach (var component in components)
-            {
-                var json = component.get_reflection_meta_data();
-                var data = JsonConvert.DeserializeObject<Reflection>(json);
-                
-                Button btn = new Button();
-                btn.Width = Double.NaN;
-                btn.Content = data.Name;
-               // add_component_btn.ContextMenu.Items.Add(btn);
-               // contextMenu.Template;
-                //add_component_btn.ContextMenu.Items.Add(btn);
-            }
-            //add_component_btn.ContextMenu.Items;
+            ComponentSingleton.OnSelectedEntityChanged += OnSelectedEntityChanged_OnSelectedEntityChanged;
         }
 
         private void OnSelectedEntityChanged_OnSelectedEntityChanged(Entity entity)

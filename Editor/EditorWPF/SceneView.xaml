@@ -12,7 +12,7 @@
                 <ContextMenu>
                     <MenuItem Header="New Scene" Click="NewScene_Click"/>
                     <Separator></Separator>
-                    <MenuItem Header="Raname" Click="Rename_Click"/>
+                    <MenuItem Header="Rename" Click="Rename_Click"/>
                 </ContextMenu>
             </TreeView.ContextMenu>
         </TreeView>
