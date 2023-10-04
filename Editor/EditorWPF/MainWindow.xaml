@@ -9,14 +9,24 @@
     <Grid x:Name="main_grid">
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
             <RowDefinition/>
             <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
         <Menu>
-            <MenuItem Header="MenuItem"/>
+            <MenuItem Header="File">
+                <MenuItem Header="Save" Click="FileSaveClick"></MenuItem>
+            </MenuItem>
         </Menu>
+        <ToolBar Grid.Row="1">
+<Image Source="/Resources/Save.png" />
+        </ToolBar>
         <StatusBar Grid.Row="2"/>
-        <Grid x:Name="content_grid" Grid.Row="1">
+        <Grid x:Name="content_grid" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="5"/>
@@ -28,7 +38,7 @@
             <GridSplitter Grid.Column="3" HorizontalAlignment="Stretch" Margin="0,0,0,0"  Width="5"/>
             <local:ExtendedTabControl x:Name="right_tab_panel" Grid.Column="4" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
             <local:ExtendedTabControl x:Name="left_tab_panel" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
-
+            <local:ExtendedTabControl x:Name="bottom_tab_panel" Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
         </Grid>
 
     </Grid>

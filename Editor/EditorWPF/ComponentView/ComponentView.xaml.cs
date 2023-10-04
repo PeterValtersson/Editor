@@ -28,10 +28,16 @@ namespace EditorWPF.ComponentView
         public ComponentView()
         {
             InitializeComponent();
-            ComponentSingleton.OnSelectedEntityChanged += OnSelectedEntityChanged_OnSelectedEntityChanged;
+            ComponentSingleton.OnSelectedEntityChanged += OnSelectedEntityChanged;
+            ComponentSingleton.OnComponentAddedToEntity += OnComponentAddedToEntity;
         }
 
-        private void OnSelectedEntityChanged_OnSelectedEntityChanged(Entity entity)
+        private void OnComponentAddedToEntity(Entity entity)
+        {
+            add_component_btn.ContextMenu.IsOpen = false;
+        }
+
+        private void OnSelectedEntityChanged(Entity entity)
         {
             if (selected_entity is not null)
                 entity.OnNameChanged -= Entity_OnNameChanged;

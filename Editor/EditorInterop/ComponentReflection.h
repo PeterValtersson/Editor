@@ -23,6 +23,7 @@ namespace EditorInterop
 		String^ get_name();
 		String^ get_reflection_meta_data();
 		String^ get_reflection_data(const Entity entity);
+		void set_data_from_json(const Entity entity, String^ data);
 	private:
 		std::weak_ptr<ECS::ComponentReflection>* component;
 	};

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,13 +42,30 @@ namespace EditorWPF.ComponentView
 
         private void Component_Click(object sender, RoutedEventArgs e)
         {
-            component_hide.Visibility = Visibility.Visible;
-            component_list.Visibility = Visibility.Hidden;
-            add_component_page.Children.Clear();
             component_name.Content = (sender as Button).Content;
+            var component_reflection = ComponentSingleton.FindComponentReflection(component_name.Content as string);
+            ComponentSingleton.SetComponentDataOfCurrentEntity(component_reflection);
 
-            add_component_page.Children.Add(ComponentControlBuilder.BuildComponentFieldsWithAddButton(ComponentSingleton.FindComponentReflection(component_name.Content as string)));
-            add_component_page.Visibility = Visibility.Visible;
+            //component_hide.Visibility = Visibility.Visible;
+            //component_list.Visibility = Visibility.Hidden;
+            //add_component_page.Children.Clear();
+
+
+            //var grid = new Grid();
+            //grid.RowDefinitions.Add(new RowDefinition());
+            //var row = new RowDefinition();
+            //row.Height = new GridLength(25, GridUnitType.Pixel);
+            //var addButton = new Button();
+            //addButton.Content = "Add component";
+
+            //addButton.Click += (s, e) => { ComponentSingleton.SetComponentDataOfCurrentEntity(component_reflection); };
+            //Grid.SetRow(addButton, 1);
+            //grid.Children.Add(ComponentControlBuilder.BuildComponentFields(component_reflection));
+            //grid.Children.Add(addButton);
+            //grid.RowDefinitions.Add(row);
+
+            //add_component_page.Children.Add(grid);
+            //add_component_page.Visibility = Visibility.Visible;
         }
         private void component_hide_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {

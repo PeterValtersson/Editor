@@ -39,6 +39,12 @@
     <ClInclude Include="ComponentReflection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AssimpImporterI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceHandlerI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -60,6 +66,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ComponentReflection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AssimpImporterI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceHandlerI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

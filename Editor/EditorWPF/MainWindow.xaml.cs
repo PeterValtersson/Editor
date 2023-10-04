@@ -40,7 +40,15 @@ namespace EditorWPF
             var scene_view = new SceneView(engine);
             left_tab_panel.add_tab(scene_view);
             right_tab_panel.add_tab(new ComponentView.ComponentView());
+
+
+            var resource_view = new ResourceView.ResourceView();
+            bottom_tab_panel.add_tab(resource_view);
         }
 
+        private void FileSaveClick(object sender, RoutedEventArgs e)
+        {
+            ResourceHandlerI.Save();
+        }
     }
 }
